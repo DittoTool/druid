@@ -16,6 +16,7 @@
 package com.alibaba.druid.sql.oracle.demo;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import junit.framework.TestCase;
@@ -93,8 +94,8 @@ public class Demo2 extends TestCase {
     private static class MyVisitor extends MySqlASTVisitorAdapter {
 
         private int                      varIndex        = 0;
-        private List<SQLExpr>  variantList     = new ArrayList<SQLExpr>();
-        private List<SQLExprTableSource> tableSourceList = new ArrayList<SQLExprTableSource>();
+        private List<SQLExpr>  variantList     = new LinkedList<SQLExpr>();
+        private List<SQLExprTableSource> tableSourceList = new LinkedList<SQLExprTableSource>();
 
         public boolean visit(SQLVariantRefExpr x) {
             x.getAttributes().put("varIndex", varIndex++);
