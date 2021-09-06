@@ -27,7 +27,7 @@ import com.alibaba.druid.sql.dialect.oracle.ast.stmt.OracleSelectTableReference;
 import com.alibaba.druid.sql.dialect.oracle.visitor.OracleASTVisitorAdapter;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +37,7 @@ import java.util.Map;
 public class FromSubqueryResolver extends OracleASTVisitorAdapter {
     private final List<SQLStatement> targetList;
     private final String viewName;
-    private final Map<String, String> mappings = new LinkedHashMap<String, String>();
+    private final Map<String, String> mappings = new HashMap<String, String>();
 
     private int viewNameSeed = 1;
 
