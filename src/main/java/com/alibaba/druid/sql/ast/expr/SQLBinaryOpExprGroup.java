@@ -23,7 +23,7 @@ import com.alibaba.druid.sql.ast.SQLReplaceable;
 import com.alibaba.druid.sql.visitor.SQLASTVisitor;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -168,7 +168,7 @@ public class SQLBinaryOpExprGroup extends SQLExprImpl implements SQLReplaceable 
     public void optimize() {
         List<Integer> dupIndexList = null;
 
-        Set<SQLExpr> itemSet = new LinkedHashSet<SQLExpr>();
+        Set<SQLExpr> itemSet = new HashSet<SQLExpr>();
         for (int i = 0; i < items.size(); i++) {
             if (!itemSet.add(items.get(i))) {
                 if (dupIndexList == null) {
