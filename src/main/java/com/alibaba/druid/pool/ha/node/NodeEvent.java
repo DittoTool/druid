@@ -18,6 +18,7 @@ package com.alibaba.druid.pool.ha.node;
 import com.alibaba.druid.pool.ha.PropertiesUtils;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
@@ -42,8 +43,8 @@ public class NodeEvent {
         List<String> prevNames = PropertiesUtils.loadNameList(previous, "");
         List<String> nextNames = PropertiesUtils.loadNameList(next, "");
 
-        List<String> namesToAdd = new ArrayList<String>();
-        List<String> namesToDel = new ArrayList<String>();
+        List<String> namesToAdd = new LinkedList<String>();
+        List<String> namesToDel = new LinkedList<String>();
         for (String n : prevNames) {
             if (n != null && !n.trim().isEmpty() && !nextNames.contains(n)) {
                 namesToDel.add(n);
