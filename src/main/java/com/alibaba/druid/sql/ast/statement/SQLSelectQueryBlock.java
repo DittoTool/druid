@@ -30,7 +30,7 @@ import com.alibaba.druid.util.FnvHash;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.TreeSet;
+import java.util.HashSet;
 
 public class SQLSelectQueryBlock extends SQLObjectImpl implements SQLSelectQuery, SQLReplaceable, SQLDbTypedObject {
     protected int                        distionOption;
@@ -168,7 +168,7 @@ public class SQLSelectQueryBlock extends SQLObjectImpl implements SQLSelectQuery
                     if (item instanceof SQLInListExpr) {
                         SQLInListExpr inListItem = (SQLInListExpr) item;
                         if (inListExpr.getExpr().equals(inListItem.getExpr())) {
-                            TreeSet<SQLExpr> set = new TreeSet<SQLExpr>();
+                            HashSet<SQLExpr> set = new HashSet<SQLExpr>();
                             for (SQLExpr itemItem : inListItem.getTargetList()) {
                                 set.add(itemItem);
                             }
@@ -240,7 +240,7 @@ public class SQLSelectQueryBlock extends SQLObjectImpl implements SQLSelectQuery
                         if (item instanceof SQLInListExpr) {
                             SQLInListExpr inListItem = (SQLInListExpr) item;
                             if (inListExpr.getExpr().equals(inListItem.getExpr())) {
-                                TreeSet<SQLExpr> set = new TreeSet<SQLExpr>();
+                                HashSet<SQLExpr> set = new HashSet<SQLExpr>();
                                 for (SQLExpr itemItem : inListItem.getTargetList()) {
                                     set.add(itemItem);
                                 }
