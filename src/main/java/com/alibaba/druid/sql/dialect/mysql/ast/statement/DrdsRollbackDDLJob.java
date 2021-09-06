@@ -3,7 +3,7 @@ package com.alibaba.druid.sql.dialect.mysql.ast.statement;
 import com.alibaba.druid.sql.ast.SQLStatement;
 import com.alibaba.druid.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class DrdsRollbackDDLJob extends MySqlStatementImpl implements SQLStatement {
 
-    private List<Long> jobIds = new ArrayList<Long>();
+    private List<Long> jobIds = new LinkedList<Long>();
 
     public void accept0(MySqlASTVisitor visitor) {
         visitor.visit(this);
